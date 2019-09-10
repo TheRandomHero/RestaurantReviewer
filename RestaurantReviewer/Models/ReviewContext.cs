@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace RestaurantReviewer.Models
 {
-    public class ReviewContext
+    public class ReviewContext : DbContext
     {
+        public ReviewContext(DbContextOptions<ReviewContext> options)
+            :base(options)
+        {
+        }
+
+        public DbSet<ReviewItem> Reviews { get; set; }
     }
 }
