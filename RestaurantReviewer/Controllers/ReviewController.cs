@@ -8,7 +8,7 @@ namespace RestaurantReviewer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ReviewController : ControllerBase
     {
         // GET api/values
         [HttpGet]
