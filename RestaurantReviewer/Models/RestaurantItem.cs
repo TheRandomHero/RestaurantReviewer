@@ -16,7 +16,7 @@ namespace RestaurantReviewer.Models
         public double ValueRating { get; set; }
         public double AtmposphereRating { get; set; }
 
-        public List<ReviewModel> Reviews { get; set; }
+        public List<ReviewItem> Reviews { get; set; }
 
         public RestaurantItem (string name, string imgSource)
         {
@@ -24,5 +24,25 @@ namespace RestaurantReviewer.Models
             this.ImgSource = imgSource;
         }
 
+        public void AddReview(ReviewItem review)
+        {
+            Reviews.Add(review);
+            CalculateRatingsFromReviews();
+        }
+
+        public void CalculateRatingsFromReviews()
+        {
+            foreach (ReviewItem review in Reviews)
+            {
+                FoodRating += review.FoodRating;
+                ServiceRating += review.ServiceRating;
+                ValueRating += review.ValueRating;
+                AtmposphereRating += review.AtmosphereRating;
+            }
+            FoodRating /= Reviews.Count;
+            ServiceRating /= Reviews.Count;
+            ValueRating /= Reviews.Count;
+            AtmposphereRating /= Reviews.Count;
+        }
     }
 }

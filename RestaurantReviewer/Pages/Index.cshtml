@@ -1,8 +1,29 @@
 ﻿@page
 @model RestaurantReviewer.Pages.IndexModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Home";
 }
 
 <h1>Index</h1>
-
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Ratings</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var restaurant in Model.Restaurants)
+        {
+            <tr>
+                <td><a asp-page="./Restaurant" asp-route-id="@restaurant.Id"> @restaurant.Name </a> </td>
+                <td>
+                    <div>@restaurant.FoodRating</div>
+                    <div>@restaurant.ServiceRating</div>
+                    <div>@restaurant.ValueRating</div>
+                    <div>@restaurant.AtmposphereRating</div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
