@@ -1,5 +1,6 @@
 ﻿@page "{id:int}"
 @model RestaurantReviewer.Pages.RestaurantModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "Restaurant";
 }
@@ -12,8 +13,8 @@
 
     </div>
     <!--Right column-->
-    <div>
-        <div>
+    <div class="rigt-column">
+        <div class="table">
             <table>
                 @foreach (var review in Model.Restaurant.Reviews)
                 {
@@ -44,6 +45,49 @@
 
                 }
             </table>
+        </div>
+        <div class="table">
+            <form method="post">
+                <div>Title: <input asp-for="Review.Title" /></div>
+                <div>Your comment: <input asp-for="Review.Description" /></div>
+                <div>
+                    FoodRating:  <select asp-for="Review.FoodRating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div>
+                    ServiceRating:  <select asp-for="Review.ServiceRating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div>
+                    ValueRating:  <select asp-for="Review.ValueRating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div>
+                    AtmosphereRating:  <select asp-for="Review.AtmosphereRating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <input type="submit" />
+            </form>
         </div>
     </div>
 </div>

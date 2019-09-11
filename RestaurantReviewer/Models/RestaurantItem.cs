@@ -23,11 +23,6 @@ namespace RestaurantReviewer.Models
             this.Name = name;
             this.ImgSource = imgSource;
             Reviews = new List<ReviewItem>();
-            if(Reviews.Count == 0)
-            {
-                Reviews.Add(new ReviewItem(this.Id,"very good", "Nice, causy and very charming", 5, 4, 3, 5));
-                Reviews.Add(new ReviewItem(this.Id,"good", "Just like Mamma did it at home", 4, 4, 4, 3));
-            }
         }
 
         public void AddReview(ReviewItem review)
@@ -37,7 +32,7 @@ namespace RestaurantReviewer.Models
 
         }
 
-        public void CalculateRatingsFromReviews()
+        private void CalculateRatingsFromReviews()
         {
             foreach (ReviewItem review in Reviews)
             {

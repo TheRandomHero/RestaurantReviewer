@@ -14,15 +14,17 @@ namespace RestaurantReviewer.Pages
         private readonly RestaurantContext _restaurantContext;
 
 
-        [BindProperty]
-        public RestaurantItem Restaurant { get; set; }
+        public RestaurantItem Restaurant { get; private set; }
+        
+        public ReviewItem Review { get; set; }
 
-
-        public RestaurantModel(RestaurantContext restaurantContext, ReviewContext reviewContext)
+       
+        public RestaurantModel(RestaurantContext restaurantContext)
         {
             _restaurantContext = restaurantContext;
           
         }
+        
 
         public async Task<IActionResult> OnGetAsync(long id)
         {
@@ -33,8 +35,14 @@ namespace RestaurantReviewer.Pages
             }
 
             return Page();
-
-
         }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+
+            return RedirectToPage("/Index");
+        }
+        
+
     }
 }

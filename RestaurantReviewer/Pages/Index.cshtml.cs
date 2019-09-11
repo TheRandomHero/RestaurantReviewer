@@ -14,13 +14,14 @@ namespace RestaurantReviewer.Pages
     {
         private readonly RestaurantContext _restaurantContext;
 
+        public IList<RestaurantItem> Restaurants { get; private set; }
+
         public IndexModel(RestaurantContext restaurantContext)
         {
             _restaurantContext = restaurantContext;
             
         }
 
-        public IList<RestaurantItem> Restaurants { get; set; }
         public async Task OnGetAsync()
         {
             if (_restaurantContext.restaurantItems.Count() == 0)
