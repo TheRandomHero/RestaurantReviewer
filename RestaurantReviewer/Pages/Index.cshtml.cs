@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.EntityFrameworkCore;
 using RestaurantReviewer.Models;
 
@@ -16,6 +17,7 @@ namespace RestaurantReviewer.Pages
         public IndexModel(RestaurantContext restaurantContext)
         {
             _restaurantContext = restaurantContext;
+            
         }
 
         public IList<RestaurantItem> Restaurants { get; set; }

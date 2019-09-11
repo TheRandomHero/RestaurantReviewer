@@ -1,8 +1,49 @@
-﻿@page
+﻿@page "{id:int}"
 @model RestaurantReviewer.Pages.RestaurantModel
 @{
     ViewData["Title"] = "Restaurant";
 }
 
-<h1>Restaurant</h1>
+<div class="container">
+    <!-- Left column-->
+    <div class="left-column">
+        <h1>@Model.Restaurant.Name</h1>
+        <img src="@Model.Restaurant.ImgSource" />
 
+    </div>
+    <!--Right column-->
+    <div>
+        <div>
+            <table>
+                @foreach (var review in Model.Restaurant.Reviews)
+                {
+                    <tr>
+                        <td></td>
+                        <td rowspan="2">@review.Title</td>
+                    </tr>
+                    <tr>
+                        <td>Review:</td>
+                        <td>@review.Description</td>
+                    </tr>
+                    <tr>
+                        <td>Food:</td>
+                        <td>@review.FoodRating</td>
+                    </tr>
+                    <tr>
+                        <td>Service:</td>
+                        <td>@review.ServiceRating</td>
+                    </tr>
+                    <tr>
+                        <td>Value:</td>
+                        <td>@review.ValueRating</td>
+                    </tr>
+                    <tr>
+                        <td>Atmosphere:</td>
+                        <td>@review.AtmosphereRating</td>
+                    </tr>
+
+                }
+            </table>
+        </div>
+    </div>
+</div>
