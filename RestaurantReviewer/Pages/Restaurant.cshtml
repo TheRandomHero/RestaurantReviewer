@@ -9,11 +9,29 @@
     <div class="left-column">
         <h1>@Model.Restaurant.Name</h1>
         <img src="@Model.Restaurant.ImgSource" />
-
+        <table>
+            <tr>
+                <td>Food: </td>
+                <td>@Model.Restaurant.FoodRating</td>
+            </tr>
+            <tr>
+                <td>Service: </td>
+                <td>@Model.Restaurant.ServiceRating</td>
+            </tr>
+            <tr>
+                <td>Value: </td>
+                <td>@Model.Restaurant.ValueRating</td>
+            </tr>
+            <tr>
+                <td>Atmosphere: </td>
+                <td>@Model.Restaurant.AtmposphereRating</td>
+            </tr>
+        </table>
     </div>
     <!--Right column-->
     <div>
         <div>
+            <h2>Reviews:</h2>
             <table>
                 @foreach (var review in Model.Restaurant.Reviews)
                 {
