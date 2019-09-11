@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RestaurantReviewer.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("restaurant/api/[controller]")]
     [ApiController]
     public class ReviewController : ControllerBase
     {

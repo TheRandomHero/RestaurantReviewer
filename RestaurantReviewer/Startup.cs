@@ -32,6 +32,7 @@ namespace RestaurantReviewer
             services.AddDbContext<ReviewContext>(opt =>
                 opt.UseInMemoryDatabase("ReviewList"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddRouting();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,8 +48,10 @@ namespace RestaurantReviewer
                 app.UseHsts();
             }
 
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseMvc();
+            
         }
     }
 }
