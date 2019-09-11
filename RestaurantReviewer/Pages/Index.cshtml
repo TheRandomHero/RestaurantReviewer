@@ -18,10 +18,38 @@
             <tr>
                 <td><a asp-page="./Restaurant" asp-route-id="@restaurant.Id"> @restaurant.Name </a> </td>
                 <td>
-                    <div>@restaurant.FoodRating</div>
-                    <div>@restaurant.ServiceRating</div>
-                    <div>@restaurant.ValueRating</div>
-                    <div>@restaurant.AtmposphereRating</div>
+                    <div>
+                        <div class="RatingName">
+                            Food:
+                        </div>
+                        <div class="RatingScore">
+                            @restaurant.FoodRating
+                        </div>
+                    </div>
+                    <div>
+                        <div class="RatingName">
+                            Service:
+                        </div>
+                        <div class="RatingScore">
+                            @restaurant.ServiceRating
+                        </div>
+                    </div>
+                    <div>
+                        <div class="RatingName">
+                            Value:
+                        </div>
+                        <div class="RatingScore">
+                            @restaurant.ValueRating
+                        </div>
+                    </div>
+                    <div>
+                        <div class="RatingName">
+                            Atmposphere:
+                        </div>
+                        <div class="RatingScore">
+                            @restaurant.AtmposphereRating
+                        </div>
+                    </div>
                 </td>
             </tr>
         }
