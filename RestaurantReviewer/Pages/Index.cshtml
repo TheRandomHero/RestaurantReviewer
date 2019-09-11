@@ -4,33 +4,31 @@
 @{
     ViewData["Title"] = "Home";
 }
-
-<h1>Index</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Ratings</th>
-        </tr>
-    </thead>
-    <tbody>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Style.css" />
+</head>
+<body>
+    <div class="header">
+        <h1>Restaurant Reviews</h1>
+    </div>
+    <div class="grid-container">
         @foreach (var restaurant in Model.Restaurants)
         {
-            <tr>
-                <td>
-                <a asp-page="./Restaurant" asp-route-id="@restaurant.Id"> @restaurant.Name </a> 
-                </td>
-                <td>
-                    <div>
-                        <div class="RatingName">
-                            Rating: 
-                        </div>
-                        <div class="RatingScore">
-                            @restaurant.TotalRating
-                        </div>
+            <div class="restaurant-card">
+                <div class="restaurant-card-header">
+                    <a asp-page="./Restaurant" asp-route-id="@restaurant.Id"> @restaurant.Name </a>
+                </div>
+                <div class="restaurant-card-data">
+                    <div class="RatingName">
+                        Rating
                     </div>
-                </td>
-            </tr>
+                    <div class="RatingScore">
+                        @restaurant.TotalRating
+                    </div>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
+</body>

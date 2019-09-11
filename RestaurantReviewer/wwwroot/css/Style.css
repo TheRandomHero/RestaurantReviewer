@@ -1,0 +1,48 @@
+﻿body {
+    background-color: ivory;
+    margin: 0;
+}
+
+.header {
+    width: 100%;
+    height: auto;
+    font-family: 'Lobster', cursive;
+    background-color: lightsalmon;
+    margin: 0;
+}
+
+.header h1{
+    text-align:center;
+}
+
+.grid-container {
+    text-align:center;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 30px;
+    justify-content: center;
+}
+
+.restaurant-card {
+    background-color: blanchedalmond;
+    font-family: 'Josefin Sans', sans-serif;
+    height: 300px;
+    width: 200px;
+}
+
+.restaurant-card-header {
+    font-weight:900;
+    color: indianred
+}
+
+.restaurant-card-data{
+    font-weight:200;
+}
+
+.restaurant-card-header a{
+    margin: 8px;
+}
+
+.restaurant-card-header a:visited{
+    color: indianred
+}
