@@ -9,6 +9,6 @@ namespace RestaurantReviewer.Models
         {
         }
 
-        public DbSet<ReviewItem> Reviews { get; set; }
+        public DbSet<ReviewItem> ReviewItem { get; set; }
     }
 }

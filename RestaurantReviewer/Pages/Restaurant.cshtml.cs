@@ -13,21 +13,26 @@ namespace RestaurantReviewer.Pages
     {
         private readonly RestaurantContext _restaurantContext;
 
+        private readonly ReviewContext _reviewContext;
+
         public RestaurantItem Restaurant { get; private set; }
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public ReviewItem Review { get; set; }
-        public RestaurantModel(RestaurantContext restaurantContext)
+        [BindProperty(SupportsGet = true)]
+        public List<ReviewItem> ReviewsOfGiveRestaurant { get; set; }
+
+        public RestaurantModel(RestaurantContext restaurantContext, ReviewContext reviewContext)
         {
             _restaurantContext = restaurantContext;
-          
+            _reviewContext = reviewContext;        
         }
-
+        
 
         public async Task<IActionResult> OnGetAsync(long id)
         {
             Restaurant = await _restaurantContext.restaurantItems.FindAsync(id);
-
-            if (Restaurant == null)
+            ReviewsOfGiveRestaurant = await _reviewContext.ReviewItem.Where(rId => rId.RestaurantId == id).ToListAsync();
+            if(Restaurant == null)
             {
                 return RedirectToPage();
             }
@@ -35,18 +40,20 @@ namespace RestaurantReviewer.Pages
             return Page();
         }
 
-        //public async Task<IActionResult> OnPostAsync(long id)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return Page();
-        //    }
-        //    var returnUrl = Request.QueryString;
-        //    Restaurant = await _restaurantContext.restaurantItems.FindAsync(id);
-        //    Restaurant.AddReview(new ReviewItem(id, Review.Title, Review.Description, Review.FoodRating,
-        //        Review.ServiceRating, Review.ValueRating, Review.AtmosphereRating));
-        //    return new RedirectToPageResult("Index");
-        //}
+        public async Task<IActionResult> OnPostAsync(long id)
+        {
+            Restaurant = await _restaurantContext.restaurantItems.FindAsync(id);
+
+            _reviewContext.ReviewItem.Add(new ReviewItem(id, Review.Title, Review.Description, Review.FoodRating, Review.ServiceRating,
+                                                            Review.ValueRating, Review.AtmosphereRating));
+            await _reviewContext.SaveChangesAsync();
+
+            ReviewsOfGiveRestaurant = await _reviewContext.ReviewItem.Where(rId => rId.RestaurantId == id).ToListAsync();
+
+            Restaurant.CalculateRatingsFromReviews(ReviewsOfGiveRestaurant);
+
+            return Page();
+        }
         
 
     }

@@ -4,7 +4,6 @@
 @{
     ViewData["Title"] = "Restaurant";
 }
-
 <div class="container">
     <!-- Left column-->
     <div class="left-column">
@@ -16,7 +15,7 @@
     <div class="rigt-column">
         <div class="table">
             <table>
-                @foreach (var review in Model.Restaurant.Reviews)
+                @foreach (var review in Model.ReviewsOfGiveRestaurant)
                 {
                     <tr>
                         <td></td>
@@ -47,8 +46,8 @@
             </table>
         </div>
         <div class="table">
-            <form method="post">
-                <div>Title: <input asp-for="Review.Title"  /></div>
+            <form method="post" autocomplete="off" name="newReview">
+                <div>Title: <input asp-for="Review.Title" /></div>
                 <div>Your comment: <input asp-for="Review.Description" /></div>
                 <div>
                     FoodRating:  <select asp-for="Review.FoodRating">
@@ -91,3 +90,4 @@
         </div>
     </div>
 </div>
+    

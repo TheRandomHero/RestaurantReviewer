@@ -34,14 +34,5 @@ namespace RestaurantReviewer.Controllers
             return restaurant;
         }
 
-        [HttpPost("{id}")]
-        public async Task<ActionResult<ReviewItem>> OnPostAsync([FromBody]ReviewItem item, long id)
-        {
-            
-           
-            Restaurant = await _restaurantContext.restaurantItems.FindAsync(id);
-            Restaurant.AddReview(new ReviewItem(id, item.Title, item.Description, item.FoodRating, item.ServiceRating, item.ValueRating, item.AtmosphereRating));
-            return RedirectToPage("Index");
-        }
     }
 }
