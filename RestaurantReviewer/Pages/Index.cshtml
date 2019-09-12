@@ -13,22 +13,24 @@
     <div class="header">
         <h1>Restaurant Reviews</h1>
     </div>
+
     <div class="grid-container">
         @foreach (var restaurant in Model.Restaurants)
         {
+        <a asp-page="./Restaurant" asp-route-id="@restaurant.Id">
             <div class="restaurant-card">
                 <div class="restaurant-card-header">
-                    <a asp-page="./Restaurant" asp-route-id="@restaurant.Id"> @restaurant.Name </a>
+                    <b>@restaurant.Name</b>
+                    <img src="@restaurant.ImgSource">
                 </div>
                 <div class="restaurant-card-data">
-                    <div class="RatingName">
+                    <div class="rating">
                         Rating
-                    </div>
-                    <div class="RatingScore">
                         @restaurant.TotalRating
                     </div>
                 </div>
             </div>
+        </a>
         }
     </div>
 </body>

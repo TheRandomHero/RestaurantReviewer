@@ -7,7 +7,8 @@
     width: 100%;
     height: auto;
     font-family: 'Lobster', cursive;
-    background-color: lightsalmon;
+    color: darkred;
+    background-color: bisque;
     margin: 0;
 }
 
@@ -24,25 +25,59 @@
 }
 
 .restaurant-card {
+    position: relative;
     background-color: blanchedalmond;
     font-family: 'Josefin Sans', sans-serif;
     height: 300px;
     width: 200px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:brown;
+    transition: ease-in-out 0.15s;
+}
+
+.restaurant-card:hover {
+    border-width: 5px;
+    border-color: crimson;
 }
 
 .restaurant-card-header {
-    font-weight:900;
-    color: indianred
+    padding: 5px 10px;
+    font-weight: 900;
+    color: indianred;
+    margin: 0 auto;
 }
 
-.restaurant-card-data{
-    font-weight:200;
+.restaurant-card-header img{
+    max-width: 100%;
+    max-height: 60%;
+    padding-top: 3px;
+    height: auto;
 }
 
-.restaurant-card-header a{
-    margin: 8px;
+.restaurant-card-header b {
+    margin: 10px;
+    padding: 5px;
+    position: relative;
+    min-height: 150px;
 }
 
 .restaurant-card-header a:visited{
     color: indianred
+}
+
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+.restaurant-card-data {
+    font-weight: 200;
+    color: black;
+}
+
+.restaurant-card-data .rating {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
 }
