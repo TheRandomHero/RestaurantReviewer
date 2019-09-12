@@ -32,6 +32,7 @@ namespace RestaurantReviewer.Pages
         {
             Restaurant = await _restaurantContext.restaurantItems.FindAsync(id);
             ReviewsOfGiveRestaurant = await _reviewContext.ReviewItem.Where(rId => rId.RestaurantId == id).ToListAsync();
+            Restaurant.CalculateRatingsFromReviews(ReviewsOfGiveRestaurant);
             if(Restaurant == null)
             {
                 return RedirectToPage();

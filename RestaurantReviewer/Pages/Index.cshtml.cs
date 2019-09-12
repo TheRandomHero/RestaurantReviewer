@@ -41,6 +41,11 @@ namespace RestaurantReviewer.Pages
                 await _reviewContext.SaveChangesAsync();
             }
             Restaurants = await _restaurantContext.restaurantItems.ToListAsync();
+            foreach (var restaurant in Restaurants)
+            {
+                List<ReviewItem> ReviewsOfGiveRestaurant = await _reviewContext.ReviewItem.Where(rId => rId.RestaurantId == restaurant.Id).ToListAsync();
+                restaurant.CalculateRatingsFromReviews(ReviewsOfGiveRestaurant);
+            }
         }
     }
 }
