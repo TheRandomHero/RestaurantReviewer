@@ -4,107 +4,114 @@
 @{
     ViewData["Title"] = "Restaurant";
 }
-<div class="container">
-    <!-- Left column-->
-    <div class="left-column">
-        <h1>@Model.Restaurant.Name</h1>
-        <img src="@Model.Restaurant.ImgSource" />
-        <table>
-            <tr>
-                <td>Food: </td>
-                <td>@Model.Restaurant.FoodRating</td>
-            </tr>
-            <tr>
-                <td>Service: </td>
-                <td>@Model.Restaurant.ServiceRating</td>
-            </tr>
-            <tr>
-                <td>Value: </td>
-                <td>@Model.Restaurant.ValueRating</td>
-            </tr>
-            <tr>
-                <td>Atmosphere: </td>
-                <td>@Model.Restaurant.AtmposphereRating</td>
-            </tr>
-        </table>
-    </div>
-    <!--Right column-->
-    <div>
-        <div>
-            <h2>Reviews:</h2>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Style.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Left column-->
+        <div class="left-column">
+            <h1>@Model.Restaurant.Name</h1>
+            <img src="@Model.Restaurant.ImgSource" />
             <table>
-                @foreach (var review in Model.ReviewsOfGiveRestaurant)
-                {
-                    <tr>
-                        <td></td>
-                        <td rowspan="2">@review.Title</td>
-                    </tr>
-                    <tr>
-                        <td>Review:</td>
-                        <td>@review.Description</td>
-                    </tr>
-                    <tr>
-                        <td>Food:</td>
-                        <td>@review.FoodRating</td>
-                    </tr>
-                    <tr>
-                        <td>Service:</td>
-                        <td>@review.ServiceRating</td>
-                    </tr>
-                    <tr>
-                        <td>Value:</td>
-                        <td>@review.ValueRating</td>
-                    </tr>
-                    <tr>
-                        <td>Atmosphere:</td>
-                        <td>@review.AtmosphereRating</td>
-                    </tr>
-
-                }
+                <tr>
+                    <td>Food: </td>
+                    <td>@Model.Restaurant.FoodRating</td>
+                </tr>
+                <tr>
+                    <td>Service: </td>
+                    <td>@Model.Restaurant.ServiceRating</td>
+                </tr>
+                <tr>
+                    <td>Value: </td>
+                    <td>@Model.Restaurant.ValueRating</td>
+                </tr>
+                <tr>
+                    <td>Atmosphere: </td>
+                    <td>@Model.Restaurant.AtmposphereRating</td>
+                </tr>
             </table>
         </div>
-        <div class="table">
-            <form method="post" autocomplete="off" name="newReview">
-                <div>Title: <input asp-for="Review.Title" /></div>
-                <div>Your comment: <input asp-for="Review.Description" /></div>
-                <div>
-                    FoodRating:  <select asp-for="Review.FoodRating">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div>
-                    ServiceRating:  <select asp-for="Review.ServiceRating">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div>
-                    ValueRating:  <select asp-for="Review.ValueRating">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div>
-                    AtmosphereRating:  <select asp-for="Review.AtmosphereRating">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <input type="submit" />
-            </form>
+        <!--Right column-->
+        <div>
+            <div>
+                <h2>Reviews:</h2>
+                <table>
+                    @foreach (var review in Model.ReviewsOfGiveRestaurant)
+                    {
+                        <tr>
+                            <td></td>
+                            <td rowspan="2">@review.Title</td>
+                        </tr>
+                        <tr>
+                            <td>Review:</td>
+                            <td>@review.Description</td>
+                        </tr>
+                        <tr>
+                            <td>Food:</td>
+                            <td>@review.FoodRating</td>
+                        </tr>
+                        <tr>
+                            <td>Service:</td>
+                            <td>@review.ServiceRating</td>
+                        </tr>
+                        <tr>
+                            <td>Value:</td>
+                            <td>@review.ValueRating</td>
+                        </tr>
+                        <tr>
+                            <td>Atmosphere:</td>
+                            <td>@review.AtmosphereRating</td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+            <div class="table">
+                <form method="post" autocomplete="off" name="newReview">
+                    <div>Title: <input asp-for="Review.Title" /></div>
+                    <div>Your comment: <input asp-for="Review.Description" /></div>
+                    <div>
+                        FoodRating:  <select asp-for="Review.FoodRating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div>
+                        ServiceRating:  <select asp-for="Review.ServiceRating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div>
+                        ValueRating:  <select asp-for="Review.ValueRating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div>
+                        AtmosphereRating:  <select asp-for="Review.AtmosphereRating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <input type="submit" />
+                </form>
+            </div>
         </div>
     </div>
-</div>
+</body>
