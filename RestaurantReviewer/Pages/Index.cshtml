@@ -18,12 +18,12 @@
         @foreach (var restaurant in Model.Restaurants)
         {
         <a asp-page="./Restaurant" asp-route-id="@restaurant.Id">
-            <div class="restaurant-card">
-                <div class="restaurant-card-header">
+            <div class="card">
+                <div class="card-header">
                     <b>@restaurant.Name</b>
                     <img src="@restaurant.ImgSource">
                 </div>
-                <div class="restaurant-card-data">
+                <div class="card-data">
                     <div class="rating">
                         Rating
                         @restaurant.TotalRating
