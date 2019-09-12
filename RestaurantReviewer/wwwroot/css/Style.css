@@ -1,6 +1,7 @@
 ﻿body {
     background-color: ivory;
     margin: 0;
+    margin-bottom:40px;
 }
 
 .header {
@@ -19,7 +20,7 @@
 .grid-container {
     text-align:center;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     grid-gap: 30px;
     justify-content: center;
 }
