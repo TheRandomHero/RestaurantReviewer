@@ -12,6 +12,10 @@
         public int ValueRating { get; set; }
         public int AtmosphereRating { get; set; }
 
+        public ReviewItem()
+        {
+
+        }
         public ReviewItem(long restaurantId, string title, string description,
             int foodRating, int serviceRating, int valueRating, int atmosphereRating)
         {

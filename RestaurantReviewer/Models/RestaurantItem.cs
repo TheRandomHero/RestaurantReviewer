@@ -18,11 +18,15 @@ namespace RestaurantReviewer.Models
 
         public List<ReviewItem> Reviews { get; set; }
 
+        
         public RestaurantItem (string name, string imgSource)
         {
             this.Name = name;
             this.ImgSource = imgSource;
             Reviews = new List<ReviewItem>();
+            AddReview(new ReviewItem(this.Id, "Hello", "very causy", 4, 4, 4, 3));
+
+            AddReview(new ReviewItem(this.Id, "Never again", "very bad", 2, 2, 2, 3));
         }
 
         public void AddReview(ReviewItem review)
