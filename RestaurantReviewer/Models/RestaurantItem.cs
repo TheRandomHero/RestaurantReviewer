@@ -48,7 +48,7 @@ namespace RestaurantReviewer.Models
             RoundRatings();
         }
 
-        private void RoundRatings()
+        public void RoundRatings()
         {
             FoodRating = Math.Round(FoodRating, 2);
             ServiceRating = Math.Round(ServiceRating, 2);
