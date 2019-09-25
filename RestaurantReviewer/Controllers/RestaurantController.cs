@@ -24,7 +24,7 @@ namespace RestaurantReviewer.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<RestaurantItem>> GetRestaurant(long id)
         {
-            var restaurant = await _restaurantContext.restaurantItems.FindAsync(id);
+            var restaurant = await _restaurantContext.RestaurantItems.FindAsync(id);
 
             if (restaurant == null)
             {

@@ -13,25 +13,22 @@ namespace RestaurantReviewer.Pages
     {
         private readonly RestaurantContext _restaurantContext;
 
-        private readonly ReviewContext _reviewContext;
-
         public RestaurantItem Restaurant { get; private set; }
         [BindProperty(SupportsGet = true)]
         public ReviewItem Review { get; set; }
         [BindProperty(SupportsGet = true)]
         public List<ReviewItem> ReviewsOfGiveRestaurant { get; set; }
 
-        public RestaurantModel(RestaurantContext restaurantContext, ReviewContext reviewContext)
+        public RestaurantModel(RestaurantContext restaurantContext)
         {
             _restaurantContext = restaurantContext;
-            _reviewContext = reviewContext;        
         }
         
 
         public async Task<IActionResult> OnGetAsync(long id)
         {
-            Restaurant = await _restaurantContext.restaurantItems.FindAsync(id);
-            ReviewsOfGiveRestaurant = await _reviewContext.ReviewItem.Where(rId => rId.RestaurantId == id).ToListAsync();
+            Restaurant = await _restaurantContext.RestaurantItems.FindAsync(id);
+            ReviewsOfGiveRestaurant = await _restaurantContext.ReviewItems.Where(rId => rId.RestaurantId == id).ToListAsync();
             Restaurant.CalculateRatingsFromReviews(ReviewsOfGiveRestaurant);
             if(Restaurant == null)
             {
@@ -43,13 +40,13 @@ namespace RestaurantReviewer.Pages
 
         public async Task<IActionResult> OnPostAsync(long id)
         {
-            Restaurant = await _restaurantContext.restaurantItems.FindAsync(id);
+            Restaurant = await _restaurantContext.RestaurantItems.FindAsync(id);
 
-            _reviewContext.ReviewItem.Add(new ReviewItem(id, Review.Title, Review.Description, Review.FoodRating, Review.ServiceRating,
+            _restaurantContext.ReviewItems.Add(new ReviewItem(id, Review.Title, Review.Description, Review.FoodRating, Review.ServiceRating,
                                                             Review.ValueRating, Review.AtmosphereRating));
-            await _reviewContext.SaveChangesAsync();
+            await _restaurantContext.SaveChangesAsync();
 
-            ReviewsOfGiveRestaurant = await _reviewContext.ReviewItem.Where(rId => rId.RestaurantId == id).ToListAsync();
+            ReviewsOfGiveRestaurant = await _restaurantContext.ReviewItems.Where(rId => rId.RestaurantId == id).ToListAsync();
 
             Restaurant.CalculateRatingsFromReviews(ReviewsOfGiveRestaurant);
 

@@ -12,8 +12,11 @@ namespace RestaurantReviewer.Models
             : base (options)
         {
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+            => options.UseSqlite("Data Source=restaurantDatabase.db");
 
-        public DbSet<RestaurantItem> restaurantItems { get; set; }
+        public DbSet<RestaurantItem> RestaurantItems { get; set; }
+        public DbSet<ReviewItem> ReviewItems { get; set; }
 
     }
 }
