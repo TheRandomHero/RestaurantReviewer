@@ -21,8 +21,9 @@ namespace RestaurantReviewer.Models
         {
             this.Name = name;
             this.ImgSource = imgSource;
-
         }
+
+        public RestaurantItem() { }
 
 
         public void CalculateRatingsFromReviews(List<ReviewItem> reviews)

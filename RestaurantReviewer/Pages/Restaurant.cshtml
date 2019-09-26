@@ -2,13 +2,17 @@
 @model RestaurantReviewer.Pages.RestaurantModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    ViewData["Title"] = "Restaurant";
+    ViewData["Title"] = Model.Restaurant.Name;
 }
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/Style.css" />
-</head>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/Style.css" />
+        <link rel="stylesheet" href="~/css/SimpleStarRating.css" />
+        <script type="text/javascript" src="~/js/SimpleStarRating.js"></script>
+        <script defer type="text/javascript" src="~/js/InitRating.js"></script>
+        <script defer type="text/javascript" src="~/js/HiddenInputSetter.js"></script>
+    </head>
 <body>
     <div class="header">
         <h1>@Model.Restaurant.Name</h1>
@@ -57,19 +61,19 @@
                                 <table class="rating-container" align="center">
                                     <tr>
                                         <td>Food: </td>
-                                        <td class="rating-score">@review.FoodRating</td>
+                                        <td class="rating-score"><span class="rating non-editable" data-default-rating="@review.FoodRating"></span></td>
                                     </tr>
                                     <tr>
                                         <td>Service: </td>
-                                        <td class="rating-score">@review.ServiceRating</td>
+                                        <td class="rating-score"><span class="rating non-editable" data-default-rating="@review.ServiceRating"></span></td>
                                     </tr>
                                     <tr>
                                         <td>Value: </td>
-                                        <td class="rating-score">@review.ValueRating</td>
+                                        <td class="rating-score"><span class="rating non-editable" data-default-rating="@review.ValueRating"></span></td>
                                     </tr>
                                     <tr>
                                         <td>Atmosphere: </td>
-                                        <td class="rating-score">@review.AtmosphereRating</td>
+                                        <td class="rating-score"><span class="rating non-editable" data-default-rating="@review.AtmosphereRating"></span></td>
                                     </tr>
                                 </table>
                             </div>
@@ -95,54 +99,43 @@
                             <input asp-for="Review.Description" />
                         </div>
                     </div>
+
                     <div class="field-container">
                         <div>FoodRating:</div>
                         <div class="field">
-                            <select asp-for="Review.FoodRating">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                            <span id="foodStar" class="rating" data-default-rating="1"></span>
+                            <input id="foodRating" class="hiddenInput" type="hidden" value="1" asp-for="Review.FoodRating" />
                         </div>
                     </div>
                     <div class="field-container">
                         <div>ServiceRating:</div>
                         <div class="field">
-                            <select asp-for="Review.ServiceRating">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                            <span id="serviceStar" class="rating" data-default-rating="1"></span>
+                            <input id="serviceRating" class="hiddenInput" type="hidden" value="1" asp-for="Review.ServiceRating" />
                         </div>
                     </div>
+
+
                     <div class="field-container">
                         <div>ValueRating:</div>
                         <div class="field">
-                            <select asp-for="Review.ValueRating">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                            <span id="valueStar" class="rating" data-default-rating="1"></span>
+                            <input id="valueRating" class="hiddenInput" type="hidden" value="1" asp-for="Review.ValueRating" />
                         </div>
                     </div>
+
+
+
+
                     <div class="field-container">
                         <div>AtmosphereRating:</div>
                         <div class="field">
-                            <select asp-for="Review.AtmosphereRating">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                            <span id="atmosphereStar" class="rating" data-default-rating="1"></span>
+                            <input id="atmosphereRating" class="hiddenInput" type="hidden" value="1" asp-for="Review.AtmosphereRating" />
                         </div>
                     </div>
+
+
                     <input type="submit" />
                 </form>
             </div>

@@ -10,31 +10,32 @@
         <link rel="stylesheet" href="~/css/Style.css" />
         <link rel="stylesheet" href="~/css/SimpleStarRating.css" />
         <script type="text/javascript" src="~/js/SimpleStarRating.js"></script>
-        <script defer type="text/javascript" src="~/js/Rating.js"></script>
+        <script defer type="text/javascript" src="~/js/InitRating.js"></script>
     </head>
-<body>
-    <div class="header">
-        <h1>Restaurant Reviews</h1>
-    </div>
+    <body>
+        <div class="header">
+            <h1>Restaurant Reviews</h1>
+        </div>
+        <a class="back-button" asp-page="./AddRestaurant">Add restaurant</a>
 
-    <div class="grid-container">
-        @foreach (var restaurant in Model.Restaurants)
-        {
-        <a asp-page="./Restaurant" asp-route-id="@restaurant.Id">
-            <div class="card">
-                <div class="card-header">
-                    <b>@restaurant.Name</b>
-                    <img src="@restaurant.ImgSource">
-                </div>
-                <div class="card-data">
-                    <div>
-                        Rating
-                        <span class="rating" data-default-rating="@restaurant.TotalRating"></span>
-                        @restaurant.TotalRating
+        <div class="grid-container">
+            @foreach (var restaurant in Model.Restaurants)
+            {
+                <a asp-page="./Restaurant" asp-route-id="@restaurant.Id">
+                    <div class="card">
+                        <div class="card-header">
+                            <b>@restaurant.Name</b>
+                            <img src="@restaurant.ImgSource">
+                        </div>
+                        <div class="card-data">
+                            <div>
+                                Rating
+                                <span class="rating non-editable" data-default-rating="@restaurant.TotalRating"></span>
+                                @restaurant.TotalRating
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </a>
-        }
-    </div>
-</body>
+                </a>
+            }
+        </div>
+    </body>
