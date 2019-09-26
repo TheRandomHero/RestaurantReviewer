@@ -8,8 +8,8 @@ using RestaurantReviewer.Models;
 namespace RestaurantReviewer.Migrations
 {
     [DbContext(typeof(RestaurantContext))]
-    [Migration("20190924125915_InitMigration")]
-    partial class InitMigration
+    [Migration("20190926080119_firstMigration")]
+    partial class firstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

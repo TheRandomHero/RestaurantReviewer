@@ -6,13 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20190924123911_InitialMigration.cs" />
-    <Compile Remove="Migrations\20190924123911_InitialMigration.Designer.cs" />
-    <Compile Remove="Migrations\20190924124908_InitialMigration.cs" />
-    <Compile Remove="Migrations\20190924124908_InitialMigration.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
