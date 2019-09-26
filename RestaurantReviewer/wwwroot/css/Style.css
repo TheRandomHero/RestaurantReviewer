@@ -77,10 +77,8 @@ a:hover, a:visited, a:link, a:active {
 }
 
 .card-data .rating {
-    position: absolute;
     bottom: 5px;
     width: 100%;
-    text-align: center;
 }
 
 .image-container-mid {

@@ -4,11 +4,14 @@
 @{
     ViewData["Title"] = "Home";
 }
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/Style.css" />
-</head>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/Style.css" />
+        <link rel="stylesheet" href="~/css/SimpleStarRating.css" />
+        <script type="text/javascript" src="~/js/SimpleStarRating.js"></script>
+        <script defer type="text/javascript" src="~/js/Rating.js"></script>
+    </head>
 <body>
     <div class="header">
         <h1>Restaurant Reviews</h1>
@@ -24,8 +27,9 @@
                     <img src="@restaurant.ImgSource">
                 </div>
                 <div class="card-data">
-                    <div class="rating">
+                    <div>
                         Rating
+                        <span class="rating" data-default-rating="@restaurant.TotalRating"></span>
                         @restaurant.TotalRating
                     </div>
                 </div>
