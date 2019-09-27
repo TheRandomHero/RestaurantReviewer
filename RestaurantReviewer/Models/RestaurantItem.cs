@@ -21,8 +21,9 @@ namespace RestaurantReviewer.Models
         {
             this.Name = name;
             this.ImgSource = imgSource;
-
         }
+
+        public RestaurantItem() { }
 
 
         public void CalculateRatingsFromReviews(List<ReviewItem> reviews)
@@ -50,11 +51,11 @@ namespace RestaurantReviewer.Models
 
         private void RoundRatings()
         {
-            FoodRating = Math.Round(FoodRating, 2);
-            ServiceRating = Math.Round(ServiceRating, 2);
-            ValueRating = Math.Round(ValueRating, 2);
-            AtmposphereRating = Math.Round(AtmposphereRating, 2);
-            TotalRating = Math.Round(TotalRating, 2);
+            FoodRating = Math.Round(FoodRating, 1);
+            ServiceRating = Math.Round(ServiceRating, 1);
+            ValueRating = Math.Round(ValueRating, 1);
+            AtmposphereRating = Math.Round(AtmposphereRating, 1);
+            TotalRating = Math.Round(TotalRating, 1);
         }
     }
 }
