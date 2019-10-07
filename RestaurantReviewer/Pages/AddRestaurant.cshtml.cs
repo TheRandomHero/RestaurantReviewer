@@ -13,7 +13,7 @@ namespace RestaurantReviewer.Pages
         private RestaurantContext _restaurantContext;
 
         [BindProperty(SupportsGet = true)]
-        public RestaurantItem Restaurant { get; private set; }
+        public RestaurantItem Restaurant { get; set; }
 
 
         public AddRestaurantModel(RestaurantContext restaurantContext)
@@ -28,7 +28,7 @@ namespace RestaurantReviewer.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            _restaurantContext.restaurantItems.Add(new RestaurantItem(Restaurant.Name, Restaurant.ImgSource));
+            _restaurantContext.RestaurantItems.Add(new RestaurantItem(Restaurant.Name, Restaurant.ImgSource));
 
             await _restaurantContext.SaveChangesAsync();
             return Redirect("./Index");
