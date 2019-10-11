@@ -15,7 +15,7 @@ namespace RestaurantReviewer.Models
         }
         public User AddUser(User user)
         {
-            userContext.UserItems.Add(user);
+            userContext.Users.Add(user);
             userContext.SaveChanges();
             return user;
         }
@@ -27,7 +27,7 @@ namespace RestaurantReviewer.Models
 
         public User GetUser(int id)
         {
-            return userContext.UserItems.Find(id);
+            return userContext.Users.Find(id);
             
         }
 

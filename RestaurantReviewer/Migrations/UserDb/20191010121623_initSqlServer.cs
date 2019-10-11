@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RestaurantReviewer.Migrations.User
+namespace RestaurantReviewer.Migrations.UserDb
 {
-    public partial class sqlserverMigration : Migration
+    public partial class initSqlServer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,18 +48,21 @@ namespace RestaurantReviewer.Migrations.User
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserItems",
+                name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    FullName = table.Column<string>(nullable: false),
+                    UserName = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
+                    ConfirmEmail = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
                     ConfirmPassword = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserItems", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -226,7 +229,7 @@ namespace RestaurantReviewer.Migrations.User
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "UserItems");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

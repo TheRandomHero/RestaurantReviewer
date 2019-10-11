@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestaurantReviewer.Models;
 
-namespace RestaurantReviewer.Migrations.User
+namespace RestaurantReviewer.Migrations.UserDb
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20191010114031_sqlserverMigration")]
-    partial class sqlserverMigration
+    [Migration("20191010121623_initSqlServer")]
+    partial class initSqlServer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -188,18 +188,27 @@ namespace RestaurantReviewer.Migrations.User
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("ConfirmEmail")
+                        .IsRequired();
+
                     b.Property<string>("ConfirmPassword")
                         .IsRequired();
 
                     b.Property<string>("Email")
                         .IsRequired();
 
+                    b.Property<string>("FullName")
+                        .IsRequired();
+
                     b.Property<string>("Password")
+                        .IsRequired();
+
+                    b.Property<string>("UserName")
                         .IsRequired();
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserItems");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

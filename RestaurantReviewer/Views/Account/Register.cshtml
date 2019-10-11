@@ -1,0 +1,65 @@
+﻿@model User
+
+@{
+
+}
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/Style.css" />
+</head>
+<body>
+    <div class="header">
+        <h1>Sign Up</h1>
+    </div>
+    <a class="back-button" asp-page="/">HOME</a>
+
+    <div class="table">
+        <form method="post" autocomplete="off" name="newAccount">
+            <div class="field-container">
+                <div asp-validation-summary="All"></div>
+                <div>Full name:</div>
+                <div class="field">
+                    <input asp-for="FullName" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="field-container">
+                <div>User name:</div>
+                <div class="field">
+                    <input asp-for="UserName" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="field-container">
+                <div>Email:</div>
+                <div class="field">
+                    <input asp-for="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="field-container">
+                <div>Confirm Email:</div>
+                <div class="field">
+                    <input asp-for="ConfirmEmail" />
+                    <span asp-validation-for="ConfirmEmail" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="field-container">
+                <div>Password:</div>
+                <div class="field">
+                    <input asp-for="Password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="field-container">
+                <div>Confirm Password:</div>
+                <div class="field">
+                    <input asp-for="ConfirmPassword" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+            <button type="submit" name="Register">Register</button>
+        </form>
+    </div>
+</body>
