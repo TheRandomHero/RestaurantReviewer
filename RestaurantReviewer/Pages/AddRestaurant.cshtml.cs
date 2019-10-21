@@ -28,7 +28,7 @@ namespace RestaurantReviewer.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            _restaurantContext.restaurantItems.Add(new RestaurantItem(Restaurant.Name, Restaurant.ImgSource));
+            _restaurantContext.RestaurantItems.Add(new RestaurantItem(Restaurant.Name, Restaurant.ImgSource));
 
             await _restaurantContext.SaveChangesAsync();
             return Redirect("./Index");

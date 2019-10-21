@@ -1,7 +1,4 @@
-﻿//var foodRating = document.getElementById('foodRating');
-//var foodStar = document.getElementById('foodStar');
-
-foodStar.addEventListener('rate', function (e) {
+﻿foodStar.addEventListener('rate', function (e) {
     foodRating.value = e.detail;
 })
 
