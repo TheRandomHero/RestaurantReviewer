@@ -28,6 +28,7 @@ namespace RestaurantReviewer.Controllers
             await signInManager.SignOutAsync();
             return Redirect("/");
         }
+
         [HttpGet]
         // GET: /<controller>/
         public IActionResult Register()
