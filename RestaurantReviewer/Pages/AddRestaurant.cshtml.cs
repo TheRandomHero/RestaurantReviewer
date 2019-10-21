@@ -13,7 +13,7 @@ namespace RestaurantReviewer.Pages
         private RestaurantContext _restaurantContext;
 
         [BindProperty(SupportsGet = true)]
-        public RestaurantItem Restaurant { get; private set; }
+        public RestaurantItem Restaurant { get; set; }
 
 
         public AddRestaurantModel(RestaurantContext restaurantContext)

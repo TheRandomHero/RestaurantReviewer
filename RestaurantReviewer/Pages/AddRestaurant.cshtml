@@ -1,5 +1,5 @@
 ﻿@page
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 @model RestaurantReviewer.Pages.AddRestaurantModel
 @{
     ViewData["Title"] = "AddRestaurant";
@@ -13,7 +13,7 @@
     <div class="header">
         <h1>Add restaurant</h1>
     </div>
-    <a class="back-button" asp-page="./Index">HOME</a>
+    <a class="back-button" asp-page="/">HOME</a>
 
     <div class="table">
         <form method="post" autocomplete="off" name="newRestaurant">

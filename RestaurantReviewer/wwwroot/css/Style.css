@@ -146,3 +146,36 @@ h2 {
     left: 14px;
     position:absolute;
 }
+.login-button {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 900;
+    top: 14px;
+    right: 14px;
+    position: absolute;
+}
+.register-button {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 900;
+    top: 14px;
+    right: 80px;
+    position: absolute;
+}
+
+.loged-in {
+    font-family: 'Lobster', cursive;
+    font-weight: 500;
+    top: 14px;
+    right: 100px;
+    position: absolute;
+    color: darkred;
+    background-color: bisque;
+}
+.logout-button {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 900;
+    top: 14px;
+    right: 14px;
+    position: absolute;
+    border-radius: 70%;
+    background-color: #f44336;
+}
